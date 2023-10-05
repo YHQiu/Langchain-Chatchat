@@ -1,4 +1,4 @@
-![](img/logo-long-chatchat-trans-v2.png)
+![](fmchain/img/logo-long-chatchat-trans-v2.png)
 
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white "langchain-chatglm")](https://t.me/+RjliQ3jnJ1YyN2E9)
 
@@ -36,11 +36,11 @@
 
 📺[video introdution](https://www.bilibili.com/video/BV13M4y1e7cN/?share_source=copy_web&vd_source=e6c5aafe684f30fbe41925d61ca6d514)
 
-![实现原理图](img/langchain+chatglm.png)
+![实现原理图](fmchain/img/langchain+chatglm.png)
 
 The main process analysis from the aspect of document process:
 
-![实现原理图2](img/langchain+chatglm2.png)
+![实现原理图2](fmchain/img/langchain+chatglm2.png)
 
 🚩 The training or fined-tuning are not involved in the project, but still, one always can improve performance by do these.
 
@@ -166,7 +166,7 @@ The project is tested under Python3.8-python 3.10, CUDA 11.0-CUDA11.7, Windows, 
 
 ### 1. Preparing Deployment Environment
 
-Please refer to [install.md](docs/INSTALL.md)
+Please refer to [install.md](fmchain/docs/INSTALL.md)
 
 ### 2. Downloading model to local disk
 
@@ -186,9 +186,9 @@ $ git clone https://huggingface.co/moka-ai/m3e-base
 
 ### 3. Setting Configuration
 
-Copy the model-related parameter configuration template file [configs/model_config.py.example](configs/model_config.py.example) and save it in the `./configs` path under the project path, and rename it to `model_config.py`.
+Copy the model-related parameter configuration template file [configs/model_config.py.example](fmchain/configs/model_config.py.example) and save it in the `./configs` path under the project path, and rename it to `model_config.py`.
 
-Copy the service-related parameter configuration template file [configs/server_config.py.example](configs/server_config.py.example) to save in the `./configs` path under the project path, and rename it to `server_config.py`.
+Copy the service-related parameter configuration template file [configs/server_config.py.example](fmchain/configs/server_config.py.example) to save in the `./configs` path under the project path, and rename it to `server_config.py`.
 
 Before starting to execute Web UI or command line interaction, please check whether each model parameter in `configs/model_config.py` and `configs/server_config.py` meets the requirements.
 
@@ -298,21 +298,21 @@ The API, chat interface of WebUI, and knowledge management interface of WebUI ar
 
 1. FastAPI docs
 
-![](img/fastapi_docs_020_0.png)
+![](fmchain/img/fastapi_docs_020_0.png)
 
 2. Chat Interface of WebUI
 
 - Dialogue interface of WebUI
 
-![img](img/webui_0915_0.png)
+![img](fmchain/img/webui_0915_0.png)
 
 - Knowledge management interface of WebUI
 
-![img](img/webui_0915_1.png)
+![img](fmchain/img/webui_0915_1.png)
 
 ## FAQ
 
-Please refer to [FAQ](docs/FAQ.md)
+Please refer to [FAQ](fmchain/docs/FAQ.md)
 
 ---
 

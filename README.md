@@ -1,4 +1,4 @@
-![](img/logo-long-chatchat-trans-v2.png)
+![](fmchain/img/logo-long-chatchat-trans-v2.png)
 
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white "langchain-chatglm")](https://t.me/+RjliQ3jnJ1YyN2E9)
 
@@ -37,11 +37,11 @@
 
 📺 [原理介绍视频](https://www.bilibili.com/video/BV13M4y1e7cN/?share_source=copy_web&vd_source=e6c5aafe684f30fbe41925d61ca6d514)
 
-![实现原理图](img/langchain+chatglm.png)
+![实现原理图](fmchain/img/langchain+chatglm.png)
 
 从文档处理角度来看，实现流程如下：
 
-![实现原理图2](img/langchain+chatglm2.png)
+![实现原理图2](fmchain/img/langchain+chatglm2.png)
 
 🚩 本项目未涉及微调、训练过程，但可利用微调或训练对本项目效果进行优化。
 
@@ -61,7 +61,7 @@ docker run -d --gpus all -p 80:8501 registry.cn-beijing.aliyuncs.com/chatchat/ch
 
 参见 [版本更新日志](https://github.com/imClumsyPanda/langchain-ChatGLM/releases)。
 
-从 `0.1.x` 升级过来的用户请注意，需要按照[开发部署](README.md#3-开发部署)过程操作，将现有知识库迁移到新格式，具体见[知识库初始化与迁移](docs/INSTALL.md#知识库初始化与迁移)。
+从 `0.1.x` 升级过来的用户请注意，需要按照[开发部署](README.md#3-开发部署)过程操作，将现有知识库迁移到新格式，具体见[知识库初始化与迁移](fmchain/docs/INSTALL.md#知识库初始化与迁移)。
 
 ### `0.2.0` 版本与 `0.1.x` 版本区别
 
@@ -179,13 +179,13 @@ docker run -d --gpus all -p 80:8501 registry.cn-beijing.aliyuncs.com/chatchat/ch
 
 已经支持的定制分词器如下：
 
-- [AliTextSplitter](text_splitter/ali_text_splitter.py)
-- [ChineseRecursiveTextSplitter](text_splitter/chinese_recursive_text_splitter.py)
-- [ChineseTextSplitter](text_splitter/chinese_text_splitter.py)
+- [AliTextSplitter](fmchain/text_splitter/ali_text_splitter.py)
+- [ChineseRecursiveTextSplitter](fmchain/text_splitter/chinese_recursive_text_splitter.py)
+- [ChineseTextSplitter](fmchain/text_splitter/chinese_text_splitter.py)
 
 项目中默认使用的 Text Splitter 类型为 `ChineseRecursiveTextSplitter`，如需使用其他 Text Splitter 类型，请在 [configs/model_config.py] 中对 `text_splitter_dict` 和 `TEXT_SPLITTER` 进行修改。
 
-关于如何使用自定义分词器和贡献自己的分词器，可以参考[Text Splitter 贡献说明](docs/splitter.md)。
+关于如何使用自定义分词器和贡献自己的分词器，可以参考[Text Splitter 贡献说明](fmchain/docs/splitter.md)。
 
 ## Docker 部署
 
@@ -212,7 +212,7 @@ docker run -d --gpus all -p 80:8501 registry.cn-beijing.aliyuncs.com/chatchat/ch
 
 ### 1. 开发环境准备
 
-参见 [开发环境准备](docs/INSTALL.md)。
+参见 [开发环境准备](fmchain/docs/INSTALL.md)。
 
 **请注意：** `0.2.3` 及更新版本的依赖包与 `0.1.x` 版本依赖包可能发生冲突，强烈建议新建环境后重新安装依赖包。
 
@@ -232,11 +232,11 @@ $ git clone https://huggingface.co/moka-ai/m3e-base
 
 ### 3. 设置配置项
 
-复制模型相关参数配置模板文件 [configs/model_config.py.example](configs/model_config.py.example) 存储至项目路径下 `./configs` 路径下，并重命名为 `model_config.py`。
+复制模型相关参数配置模板文件 [configs/model_config.py.example](fmchain/configs/model_config.py.example) 存储至项目路径下 `./configs` 路径下，并重命名为 `model_config.py`。
 
-复制服务相关参数配置模板文件 [configs/server_config.py.example](configs/server_config.py.example) 存储至项目路径下 `./configs` 路径下，并重命名为 `server_config.py`。
+复制服务相关参数配置模板文件 [configs/server_config.py.example](fmchain/configs/server_config.py.example) 存储至项目路径下 `./configs` 路径下，并重命名为 `server_config.py`。
 
-在开始执行 Web UI 或命令行交互前，请先检查 [configs/model_config.py](configs/model_config.py) 和 [configs/server_config.py](configs/server_config.py) 中的各项模型参数设计是否符合需求：
+在开始执行 Web UI 或命令行交互前，请先检查 [configs/model_config.py](fmchain/configs/model_config.py) 和 [configs/server_config.py](fmchain/configs/server_config.py) 中的各项模型参数设计是否符合需求：
 
 - 请确认已下载至本地的 LLM 模型本地存储路径写在 `llm_model_dict` 对应模型的 `local_model_path` 属性中，如:
 
@@ -359,23 +359,23 @@ CUDA_VISIBLE_DEVICES=0,1 python startup.py -a
 
 1. FastAPI docs 界面
 
-![](img/fastapi_docs_020_0.png)
+![](fmchain/img/fastapi_docs_020_0.png)
 
 2. webui启动界面示例：
 
 - Web UI 对话界面：
 
-![img](img/webui_0915_0.png)
+![img](fmchain/img/webui_0915_0.png)
 
 - Web UI 知识库管理页面：
 
-![](img/webui_0915_1.png)
+![](fmchain/img/webui_0915_1.png)
 
 ---
 
 ## 常见问题
 
-参见 [常见问题](docs/FAQ.md)。
+参见 [常见问题](fmchain/docs/FAQ.md)。
 
 ---
 

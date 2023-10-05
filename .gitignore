@@ -2,7 +2,6 @@
 *.log.*
 *.bak
 logs
-/knowledge_base/
 #/configs/*.py
 .vscode/
 
@@ -78,7 +77,7 @@ instance/
 .scrapy
 
 # Sphinx documentation
-docs/_build/
+fmchain/docs/_build/
 
 # PyBuilder
 .pybuilder/
