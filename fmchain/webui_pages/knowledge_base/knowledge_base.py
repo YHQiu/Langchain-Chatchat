@@ -4,13 +4,14 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 import pandas as pd
 from fmchain.server.knowledge_base.utils import get_file_path, LOADER_DICT
 from fmchain.server.knowledge_base.kb_service import get_kb_details, get_kb_file_details
-from typing import Literal, Dict, Tuple
+from typing import Literal, Dict, Tuple, List
 from fmchain.configs.model_config import (embedding_model_dict, kbs_config,
                                   EMBEDDING_MODEL, DEFAULT_VS_TYPE,
                                   CHUNK_SIZE, OVERLAP_SIZE, ZH_TITLE_ENHANCE)
 import os
 import time
 
+from fmchain.webui_pages import ApiRequest, check_success_msg, check_error_msg
 
 # SENTENCE_SIZE = 100
 

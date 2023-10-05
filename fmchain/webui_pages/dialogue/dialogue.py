@@ -4,7 +4,7 @@ from streamlit_chatbox import *
 from datetime import datetime
 from fmchain.server.chat.search_engine_chat import SEARCH_ENGINES
 import os
-from fmchain.configs.model_config import LLM_MODEL, TEMPERATURE
+from fmchain.configs.model_config import LLM_MODEL, TEMPERATURE, HISTORY_LEN
 from fmchain.server.utils import get_model_worker_config
 from typing import List, Dict
 
