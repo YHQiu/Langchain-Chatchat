@@ -4,8 +4,8 @@ import sys
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).parent.parent.parent))
-from configs.model_config import BING_SUBSCRIPTION_KEY
-from server.utils import api_address
+from fmchain.configs.model_config import BING_SUBSCRIPTION_KEY
+from fmchain.server.utils import api_address
 
 from pprint import pprint
 

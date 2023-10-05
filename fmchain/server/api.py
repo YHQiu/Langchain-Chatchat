@@ -4,21 +4,21 @@ import os
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-from configs import VERSION
-from configs.model_config import NLTK_DATA_PATH
-from configs.server_config import OPEN_CROSS_DOMAIN
+from fmchain.configs import VERSION
+from fmchain.configs.model_config import NLTK_DATA_PATH
+from fmchain.configs.server_config import OPEN_CROSS_DOMAIN
 import argparse
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import RedirectResponse
-from server.chat import (chat, knowledge_base_chat, openai_chat,
+from fmchain.server.chat import (chat, knowledge_base_chat, openai_chat,
                          search_engine_chat)
-from server.knowledge_base.kb_api import list_kbs, create_kb, delete_kb
-from server.knowledge_base.kb_doc_api import (list_files, upload_docs, delete_docs,
+from fmchain.server.knowledge_base.kb_api import list_kbs, create_kb, delete_kb
+from fmchain.server.knowledge_base.kb_doc_api import (list_files, upload_docs, delete_docs,
                                               update_docs, download_doc, recreate_vector_store,
                                               search_docs, DocumentWithScore)
 from fmchain.server.llm_api import list_llm_models, change_llm_model,  stop_llm_model
-from server.utils import BaseResponse, ListResponse, FastAPI, MakeFastAPIOffline
+from fmchain.server.utils import BaseResponse, ListResponse, FastAPI, MakeFastAPIOffline
 from typing import List
 
 nltk.data.path = [NLTK_DATA_PATH] + nltk.data.path

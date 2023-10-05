@@ -4,11 +4,11 @@ from langchain.embeddings.base import Embeddings
 from langchain.schema import Document
 from langchain.vectorstores import Milvus
 
-from configs.model_config import kbs_config
+from fmchain.configs.model_config import kbs_config
 
 from fmchain.server.knowledge_base.kb_service import KBService, SupportedVSType, EmbeddingsFunAdapter, \
     score_threshold_process
-from server.knowledge_base.utils import KnowledgeFile
+from fmchain.server.knowledge_base.utils import KnowledgeFile
 
 
 class MilvusKBService(KBService):
@@ -93,7 +93,7 @@ class MilvusKBService(KBService):
 
 if __name__ == '__main__':
     # 测试建表使用
-    from server.db.base import Base, engine
+    from fmchain.server.db.base import Base, engine
 
     Base.metadata.create_all(bind=engine)
     milvusService = MilvusKBService("test")

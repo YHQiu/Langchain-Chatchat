@@ -3,8 +3,8 @@ from webui_pages.utils import *
 from streamlit_option_menu import option_menu
 from webui_pages import *
 import os
-from configs import VERSION
-from server.utils import api_address
+from fmchain.configs import VERSION
+from fmchain.server.utils import api_address
 
 
 api = ApiRequest(base_url=api_address())

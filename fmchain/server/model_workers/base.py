@@ -1,4 +1,4 @@
-from configs.model_config import LOG_PATH
+from fmchain.configs.model_config import LOG_PATH
 import fastchat.constants
 fastchat.constants.LOGDIR = LOG_PATH
 from fastchat.serve.model_worker import BaseModelWorker
@@ -72,7 +72,7 @@ class ApiModelWorker(BaseModelWorker):
 
     # help methods
     def get_config(self):
-        from server.utils import get_model_worker_config
+        from fmchain.server.utils import get_model_worker_config
         return get_model_worker_config(self.model_names[0])
 
     def prompt_to_messages(self, prompt: str) -> List[Dict]:

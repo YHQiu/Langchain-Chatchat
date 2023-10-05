@@ -1,18 +1,18 @@
 import os
 import urllib
 from fastapi import File, Form, Body, Query, UploadFile
-from configs.model_config import (DEFAULT_VS_TYPE, EMBEDDING_MODEL,
+from fmchain.configs.model_config import (DEFAULT_VS_TYPE, EMBEDDING_MODEL,
                                 VECTOR_SEARCH_TOP_K, SCORE_THRESHOLD,
                                 CHUNK_SIZE, OVERLAP_SIZE, ZH_TITLE_ENHANCE,
                                 logger, log_verbose,)
-from server.utils import BaseResponse, ListResponse, run_in_thread_pool
-from server.knowledge_base.utils import (validate_kb_name, list_files_from_folder,get_file_path,
+from fmchain.server.utils import BaseResponse, ListResponse, run_in_thread_pool
+from fmchain.server.knowledge_base.utils import (validate_kb_name, list_files_from_folder,get_file_path,
                                         files2docs_in_thread, KnowledgeFile)
 from fastapi.responses import StreamingResponse, FileResponse
 from pydantic import Json
 import json
 from fmchain.server.knowledge_base.kb_service import KBServiceFactory
-from server.db.repository.knowledge_file_repository import get_file_detail
+from fmchain.server.db.repository.knowledge_file_repository import get_file_detail
 from typing import List
 from langchain.docstore.document import Document
 

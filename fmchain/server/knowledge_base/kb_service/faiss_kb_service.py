@@ -1,17 +1,17 @@
 import os
 import shutil
 
-from configs.model_config import (
+from fmchain.configs.model_config import (
     KB_ROOT_PATH,
     SCORE_THRESHOLD,
 )
 from fmchain.server.knowledge_base.kb_service import KBService, SupportedVSType
-from server.knowledge_base.kb_cache.faiss_cache import kb_faiss_pool, ThreadSafeFaiss
-from server.knowledge_base.utils import KnowledgeFile
+from fmchain.server.knowledge_base.kb_cache.faiss_cache import kb_faiss_pool, ThreadSafeFaiss
+from fmchain.server.knowledge_base.utils import KnowledgeFile
 from langchain.embeddings.base import Embeddings
 from typing import List, Dict, Optional
 from langchain.docstore.document import Document
-from server.utils import torch_gc
+from fmchain.server.utils import torch_gc
 
 
 class FaissKBService(KBService):

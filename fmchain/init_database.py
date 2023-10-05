@@ -1,5 +1,5 @@
-from server.knowledge_base.migrate import create_tables, reset_tables, folder2db, recreate_all_vs, list_kbs_from_folder
-from configs.model_config import NLTK_DATA_PATH
+from fmchain.server.knowledge_base.migrate import create_tables, reset_tables, folder2db, recreate_all_vs, list_kbs_from_folder
+from fmchain.configs.model_config import NLTK_DATA_PATH
 import nltk
 nltk.data.path = [NLTK_DATA_PATH] + nltk.data.path
 from startup import dump_server_info

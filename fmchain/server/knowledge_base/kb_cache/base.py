@@ -4,9 +4,9 @@ from langchain.embeddings import HuggingFaceBgeEmbeddings
 from langchain.embeddings.base import Embeddings
 from langchain.schema import Document
 import threading
-from configs.model_config import (CACHED_VS_NUM, EMBEDDING_MODEL, CHUNK_SIZE,
+from fmchain.configs.model_config import (CACHED_VS_NUM, EMBEDDING_MODEL, CHUNK_SIZE,
                                   embedding_model_dict, logger, log_verbose)
-from server.utils import embedding_device
+from fmchain.server.utils import embedding_device
 from contextlib import contextmanager
 from collections import OrderedDict
 from typing import List, Any, Union, Tuple
@@ -98,7 +98,7 @@ class CachePool:
             return cache
 
     def load_kb_embeddings(self, kb_name: str=None, embed_device: str = embedding_device()) -> Embeddings:
-        from server.db.repository.knowledge_base_repository import get_kb_detail
+        from fmchain.server.db.repository.knowledge_base_repository import get_kb_detail
 
         kb_detail = get_kb_detail(kb_name=kb_name)
         print(kb_detail)

@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, DateTime, func
 
-from server.db.base import Base
+from fmchain.server.db.base import Base
 
 
 class KnowledgeBaseModel(Base):

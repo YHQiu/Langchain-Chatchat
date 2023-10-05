@@ -1,7 +1,7 @@
-from server.db.models.knowledge_base_model import KnowledgeBaseModel
+from fmchain.server.db.models.knowledge_base_model import KnowledgeBaseModel
 from fmchain.server.db.models.knowledge_file_model import KnowledgeFileModel, FileDocModel
 from fmchain.server.db.session import with_session
-from server.knowledge_base.utils import KnowledgeFile
+from fmchain.server.knowledge_base.utils import KnowledgeFile
 from typing import List, Dict
 
 

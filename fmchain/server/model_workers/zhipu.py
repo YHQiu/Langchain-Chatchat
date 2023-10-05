@@ -1,9 +1,10 @@
-from fmchain.server.model_workers import ApiModelWorker
+# from fmchain.server.model_workers import ApiModelWorker
 from fastchat import conversation as conv
 import sys
 import json
 from typing import List, Literal
 
+from fmchain.server.model_workers.base import ApiModelWorker
 
 class ChatGLMWorker(ApiModelWorker):
     BASE_URL = "https://open.bigmodel.cn/api/paas/v3/model-api"
@@ -62,7 +63,7 @@ class ChatGLMWorker(ApiModelWorker):
 
 if __name__ == "__main__":
     import uvicorn
-    from server.utils import MakeFastAPIOffline
+    from fmchain.server.utils import MakeFastAPIOffline
     from fastchat.serve.model_worker import app
 
     worker = ChatGLMWorker(

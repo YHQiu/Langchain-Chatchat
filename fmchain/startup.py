@@ -17,17 +17,17 @@ except:
     pass
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from configs.model_config import EMBEDDING_MODEL, llm_model_dict, LLM_MODEL, LOG_PATH, \
+from fmchain.configs.model_config import EMBEDDING_MODEL, llm_model_dict, LLM_MODEL, LOG_PATH, \
     logger, log_verbose, TEXT_SPLITTER
-from configs.server_config import (WEBUI_SERVER, API_SERVER, FSCHAT_CONTROLLER,
+from fmchain.configs.server_config import (WEBUI_SERVER, API_SERVER, FSCHAT_CONTROLLER,
                                    FSCHAT_OPENAI_API, HTTPX_DEFAULT_TIMEOUT)
-from server.utils import (fschat_controller_address, fschat_model_worker_address,
+from fmchain.server.utils import (fschat_controller_address, fschat_model_worker_address,
                           fschat_openai_api_address, set_httpx_timeout,
                           get_model_worker_config, get_all_model_worker_configs,
                           MakeFastAPIOffline, FastAPI, llm_device, embedding_device)
 import argparse
 from typing import Tuple, List, Dict
-from configs import VERSION
+from fmchain.configs import VERSION
 
 
 def create_controller_app(
@@ -342,7 +342,7 @@ def run_openai_api(log_level: str = "INFO", started_event: mp.Event = None):
 
 
 def run_api_server(started_event: mp.Event = None):
-    from server.api import create_app
+    from fmchain.server.api import create_app
     import uvicorn
 
     app = create_app()
@@ -456,7 +456,7 @@ def dump_server_info(after_start=False, args=None):
     import platform
     import langchain
     import fastchat
-    from server.utils import api_address, webui_address
+    from fmchain.server.utils import api_address, webui_address
 
     print("\n")
     print("=" * 30 + "Langchain-Chatchat Configuration" + "=" * 30)

@@ -1,10 +1,11 @@
-from fmchain.server.model_workers import ApiModelWorker
 from fastchat import conversation as conv
 import sys
 import json
 from fmchain.server.model_workers import SparkApi
 import websockets
-from server.utils import iter_over_async, asyncio
+
+from fmchain.server.model_workers.base import ApiModelWorker
+from fmchain.server.utils import iter_over_async, asyncio
 from typing import List
 
 
@@ -89,7 +90,7 @@ class XingHuoWorker(ApiModelWorker):
 
 if __name__ == "__main__":
     import uvicorn
-    from server.utils import MakeFastAPIOffline
+    from fmchain.server.utils import MakeFastAPIOffline
     from fastchat.serve.model_worker import app
 
     worker = XingHuoWorker(

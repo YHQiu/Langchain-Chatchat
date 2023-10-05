@@ -4,8 +4,8 @@ from typing import List
 from fastapi import FastAPI
 from pathlib import Path
 import asyncio
-from configs.model_config import LLM_MODEL, llm_model_dict, LLM_DEVICE, EMBEDDING_DEVICE, logger, log_verbose
-from configs.server_config import FSCHAT_MODEL_WORKERS
+from fmchain.configs.model_config import LLM_MODEL, llm_model_dict, LLM_DEVICE, EMBEDDING_DEVICE, logger, log_verbose
+from fmchain.configs.server_config import FSCHAT_MODEL_WORKERS
 import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Literal, Optional, Callable, Generator, Dict, Any
@@ -203,9 +203,9 @@ def get_model_worker_config(model_name: str = LLM_MODEL) -> dict:
     加载model worker的配置项。
     优先级:FSCHAT_MODEL_WORKERS[model_name] > llm_model_dict[model_name] > FSCHAT_MODEL_WORKERS["default"]
     '''
-    from configs.server_config import FSCHAT_MODEL_WORKERS
+    from fmchain.configs.server_config import FSCHAT_MODEL_WORKERS
     from fmchain.server import model_workers
-    from configs.model_config import llm_model_dict
+    from fmchain.configs.model_config import llm_model_dict
 
     config = FSCHAT_MODEL_WORKERS.get("default", {}).copy()
     config.update(llm_model_dict.get(model_name, {}))
@@ -236,7 +236,7 @@ def get_all_model_worker_configs() -> dict:
 
 
 def fschat_controller_address() -> str:
-    from configs.server_config import FSCHAT_CONTROLLER
+    from fmchain.configs.server_config import FSCHAT_CONTROLLER
 
     host = FSCHAT_CONTROLLER["host"]
     port = FSCHAT_CONTROLLER["port"]
@@ -252,7 +252,7 @@ def fschat_model_worker_address(model_name: str = LLM_MODEL) -> str:
 
 
 def fschat_openai_api_address() -> str:
-    from configs.server_config import FSCHAT_OPENAI_API
+    from fmchain.configs.server_config import FSCHAT_OPENAI_API
 
     host = FSCHAT_OPENAI_API["host"]
     port = FSCHAT_OPENAI_API["port"]
@@ -260,7 +260,7 @@ def fschat_openai_api_address() -> str:
 
 
 def api_address() -> str:
-    from configs.server_config import API_SERVER
+    from fmchain.configs.server_config import API_SERVER
 
     host = API_SERVER["host"]
     port = API_SERVER["port"]
@@ -268,7 +268,7 @@ def api_address() -> str:
 
 
 def webui_address() -> str:
-    from configs.server_config import WEBUI_SERVER
+    from fmchain.configs.server_config import WEBUI_SERVER
 
     host = WEBUI_SERVER["host"]
     port = WEBUI_SERVER["port"]
@@ -281,7 +281,7 @@ def set_httpx_timeout(timeout: float = None):
     httpx默认timeout是5秒，在请求LLM回答时不够用。
     '''
     import httpx
-    from configs.server_config import HTTPX_DEFAULT_TIMEOUT
+    from fmchain.configs.server_config import HTTPX_DEFAULT_TIMEOUT
 
     timeout = timeout or HTTPX_DEFAULT_TIMEOUT
     httpx._config.DEFAULT_TIMEOUT_CONFIG.connect = timeout

@@ -1,6 +1,6 @@
 from functools import wraps
 from contextlib import contextmanager
-from server.db.base import SessionLocal
+from fmchain.server.db.base import SessionLocal
 
 
 @contextmanager

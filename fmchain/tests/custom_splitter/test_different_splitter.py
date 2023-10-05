@@ -4,12 +4,12 @@ from transformers import AutoTokenizer
 import sys
 
 sys.path.append("../../..")
-from configs.model_config import (
+from fmchain.configs.model_config import (
     CHUNK_SIZE,
     OVERLAP_SIZE
 )
 
-from server.knowledge_base.utils import make_text_splitter
+from fmchain.server.knowledge_base.utils import make_text_splitter
 
 def text(splitter_name):
     from langchain import document_loaders

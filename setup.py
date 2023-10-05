@@ -1,5 +1,13 @@
-from setuptools import setup, find_packages
+import os
 
+from setuptools import setup, find_packages
+def gen_data_files(*dirs):
+    results = []
+
+    for src_dir in dirs:
+        for root,dirs,files in os.walk(src_dir):
+            results.append((root, map(lambda f:root + "/" + f, files)))
+    return results
 setup(
     name='fmchain',
     version='0.0.1',  # 修改为你的项目版本号
@@ -7,6 +15,8 @@ setup(
     author_email='your.email@example.com',
     description='自定义Langchain-Chatchat',
     packages=find_packages(),  # 自动查找和包含所有的Python包
+    include_package_data=True,
+    data_files = gen_data_files("docs", "lib", "js", "jpg", "png", "jpeg"),
     install_requires=[
         'langchain==0.0.287',
         'fschat[model_worker]==0.2.28',

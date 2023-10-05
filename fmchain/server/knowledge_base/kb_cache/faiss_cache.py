@@ -1,5 +1,5 @@
 from fmchain.server.knowledge_base.kb_cache.base import *
-from server.knowledge_base.utils import get_vs_path
+from fmchain.server.knowledge_base.utils import get_vs_path
 from langchain.vectorstores import FAISS
 import os
 

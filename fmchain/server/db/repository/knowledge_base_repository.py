@@ -1,4 +1,4 @@
-from server.db.models.knowledge_base_model import KnowledgeBaseModel
+from fmchain.server.db.models.knowledge_base_model import KnowledgeBaseModel
 from fmchain.server.db.session import with_session
 
 

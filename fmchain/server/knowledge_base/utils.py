@@ -2,7 +2,7 @@ import os
 
 from transformers import AutoTokenizer
 
-from configs.model_config import (
+from fmchain.configs.model_config import (
     EMBEDDING_MODEL,
     KB_ROOT_PATH,
     CHUNK_SIZE,
@@ -23,7 +23,7 @@ from langchain.text_splitter import TextSplitter
 from pathlib import Path
 import json
 from concurrent.futures import ThreadPoolExecutor
-from server.utils import run_in_thread_pool, embedding_device
+from fmchain.server.utils import run_in_thread_pool, embedding_device
 import io
 from typing import List, Union, Callable, Dict, Optional, Tuple, Generator
 import chardet

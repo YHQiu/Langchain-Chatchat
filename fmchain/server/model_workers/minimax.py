@@ -1,10 +1,11 @@
-from fmchain.server.model_workers import ApiModelWorker
 from fastchat import conversation as conv
 import sys
 import json
 import httpx
 from pprint import pprint
 from typing import List, Dict
+
+from fmchain.server.model_workers.base import ApiModelWorker
 
 
 class MiniMaxWorker(ApiModelWorker):
@@ -88,7 +89,7 @@ class MiniMaxWorker(ApiModelWorker):
 
 if __name__ == "__main__":
     import uvicorn
-    from server.utils import MakeFastAPIOffline
+    from fmchain.server.utils import MakeFastAPIOffline
     from fastchat.serve.model_worker import app
 
     worker = MiniMaxWorker(

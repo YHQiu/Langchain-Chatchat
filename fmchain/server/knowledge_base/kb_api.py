@@ -1,9 +1,9 @@
 import urllib
-from server.utils import BaseResponse, ListResponse
-from server.knowledge_base.utils import validate_kb_name
+from fmchain.server.utils import BaseResponse, ListResponse
+from fmchain.server.knowledge_base.utils import validate_kb_name
 from fmchain.server.knowledge_base.kb_service import KBServiceFactory
-from server.db.repository.knowledge_base_repository import list_kbs_from_db
-from configs.model_config import EMBEDDING_MODEL, logger, log_verbose
+from fmchain.server.db.repository.knowledge_base_repository import list_kbs_from_db
+from fmchain.configs.model_config import EMBEDDING_MODEL, logger, log_verbose
 from fastapi import Body
 
 

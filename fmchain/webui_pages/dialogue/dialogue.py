@@ -2,10 +2,10 @@ import streamlit as st
 from fmchain.webui_pages import *
 from streamlit_chatbox import *
 from datetime import datetime
-from server.chat.search_engine_chat import SEARCH_ENGINES
+from fmchain.server.chat.search_engine_chat import SEARCH_ENGINES
 import os
-from configs.model_config import LLM_MODEL, TEMPERATURE
-from server.utils import get_model_worker_config
+from fmchain.configs.model_config import LLM_MODEL, TEMPERATURE
+from fmchain.server.utils import get_model_worker_config
 from typing import List, Dict
 
 

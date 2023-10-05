@@ -7,12 +7,12 @@ from langchain.vectorstores import PGVector
 from langchain.vectorstores.pgvector import DistanceStrategy
 from sqlalchemy import text
 
-from configs.model_config import EMBEDDING_DEVICE, kbs_config
+from fmchain.configs.model_config import EMBEDDING_DEVICE, kbs_config
 
 from fmchain.server.knowledge_base.kb_service import SupportedVSType, KBService, EmbeddingsFunAdapter, \
     score_threshold_process
-from server.knowledge_base.utils import load_embeddings, KnowledgeFile
-from server.utils import embedding_device as get_embedding_device
+from fmchain.server.knowledge_base.utils import load_embeddings, KnowledgeFile
+from fmchain.server.utils import embedding_device as get_embedding_device
 
 
 class PGKBService(KBService):

@@ -1,5 +1,5 @@
 from langchain.chat_models import ChatOpenAI
-from configs.model_config import llm_model_dict, LLM_MODEL
+from fmchain.configs.model_config import llm_model_dict, LLM_MODEL
 from langchain import LLMChain
 from langchain.prompts.chat import (
     ChatPromptTemplate,

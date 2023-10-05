@@ -15,9 +15,9 @@ python webui_allinone.py --model-path-address model1@host1@port1 model2@host2@po
 python webui_alline.py --model-path-address model@host@port --num-gpus 2 --gpus 0,1 --max-gpu-memory 10GiB
 
 """
-from server.llm_api_stale import string_args,launch_all,controller_args,worker_args,server_args,LOG_PATH
+from fmchain.server.llm_api_stale import string_args,launch_all,controller_args,worker_args,server_args,LOG_PATH
 
-from server.api_allinone_stale import parser, api_args
+from fmchain.server.api_allinone_stale import parser, api_args
 import subprocess
 
 parser.add_argument("--use-remote-api",action="store_true")

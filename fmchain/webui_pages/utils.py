@@ -1,7 +1,7 @@
 # 该文件包含webui通用工具，可以被不同的webui使用
 from typing import *
 from pathlib import Path
-from configs.model_config import (
+from fmchain.configs.model_config import (
     EMBEDDING_MODEL,
     DEFAULT_VS_TYPE,
     KB_ROOT_PATH,
@@ -16,18 +16,18 @@ from configs.model_config import (
     SEARCH_ENGINE_TOP_K,
     logger, log_verbose,
 )
-from configs.server_config import HTTPX_DEFAULT_TIMEOUT
+from fmchain.configs.server_config import HTTPX_DEFAULT_TIMEOUT
 import httpx
 import asyncio
-from server.chat.openai_chat import OpenAiChatMsgIn
+from fmchain.server.chat.openai_chat import OpenAiChatMsgIn
 from fastapi.responses import StreamingResponse
 import contextlib
 import json
 import os
 from io import BytesIO
-from server.utils import run_async, iter_over_async, set_httpx_timeout, api_address
+from fmchain.server.utils import run_async, iter_over_async, set_httpx_timeout, api_address
 
-from configs.model_config import NLTK_DATA_PATH
+from fmchain.configs.model_config import NLTK_DATA_PATH
 import nltk
 nltk.data.path = [NLTK_DATA_PATH] + nltk.data.path
 from pprint import pprint
@@ -292,7 +292,7 @@ class ApiRequest:
         })
 
         if no_remote_api:
-            from server.chat.openai_chat import openai_chat
+            from fmchain.server.chat.openai_chat import openai_chat
             response = run_async(openai_chat(msg))
             return self._fastapi_stream2generator(response)
         else:
@@ -415,7 +415,7 @@ class ApiRequest:
         pprint(data)
 
         if no_remote_api:
-            from server.chat.search_engine_chat import search_engine_chat
+            from fmchain.server.chat.search_engine_chat import search_engine_chat
             response = run_async(search_engine_chat(**data))
             return self._fastapi_stream2generator(response, as_json=True)
         else:
@@ -456,7 +456,7 @@ class ApiRequest:
             no_remote_api = self.no_remote_api
 
         if no_remote_api:
-            from server.knowledge_base.kb_api import list_kbs
+            from fmchain.server.knowledge_base.kb_api import list_kbs
             response = list_kbs()
             return response.data
         else:
@@ -484,7 +484,7 @@ class ApiRequest:
         }
 
         if no_remote_api:
-            from server.knowledge_base.kb_api import create_kb
+            from fmchain.server.knowledge_base.kb_api import create_kb
             response = create_kb(**data)
             return response.dict()
         else:
@@ -506,7 +506,7 @@ class ApiRequest:
             no_remote_api = self.no_remote_api
 
         if no_remote_api:
-            from server.knowledge_base.kb_api import delete_kb
+            from fmchain.server.knowledge_base.kb_api import delete_kb
             response = delete_kb(knowledge_base_name)
             return response.dict()
         else:
@@ -528,7 +528,7 @@ class ApiRequest:
             no_remote_api = self.no_remote_api
 
         if no_remote_api:
-            from server.knowledge_base.kb_doc_api import list_files
+            from fmchain.server.knowledge_base.kb_doc_api import list_files
             response = list_files(knowledge_base_name)
             return response.data
         else:
@@ -561,7 +561,7 @@ class ApiRequest:
         }
 
         if no_remote_api:
-            from server.knowledge_base.kb_doc_api import search_docs
+            from fmchain.server.knowledge_base.kb_doc_api import search_docs
             return search_docs(**data)
         else:
             response = self.post(
@@ -613,7 +613,7 @@ class ApiRequest:
         }
 
         if no_remote_api:
-            from server.knowledge_base.kb_doc_api import upload_docs
+            from fmchain.server.knowledge_base.kb_doc_api import upload_docs
             from fastapi import UploadFile
             from tempfile import SpooledTemporaryFile
 
@@ -658,7 +658,7 @@ class ApiRequest:
         }
 
         if no_remote_api:
-            from server.knowledge_base.kb_doc_api import delete_docs
+            from fmchain.server.knowledge_base.kb_doc_api import delete_docs
             response = delete_docs(**data)
             return response.dict()
         else:
@@ -697,7 +697,7 @@ class ApiRequest:
             "not_refresh_vs_cache": not_refresh_vs_cache,
         }
         if no_remote_api:
-            from server.knowledge_base.kb_doc_api import update_docs
+            from fmchain.server.knowledge_base.kb_doc_api import update_docs
             response = update_docs(**data)
             return response.dict()
         else:
@@ -737,7 +737,7 @@ class ApiRequest:
         }
 
         if no_remote_api:
-            from server.knowledge_base.kb_doc_api import recreate_vector_store
+            from fmchain.server.knowledge_base.kb_doc_api import recreate_vector_store
             response = recreate_vector_store(**data)
             return self._fastapi_stream2generator(response, as_json=True)
         else:

@@ -1,6 +1,6 @@
 from fastapi import Body
-from configs import logger, log_verbose, LLM_MODEL, HTTPX_DEFAULT_TIMEOUT
-from server.utils import BaseResponse, fschat_controller_address
+from fmchain.configs import logger, log_verbose, LLM_MODEL, HTTPX_DEFAULT_TIMEOUT
+from fmchain.server.utils import BaseResponse, fschat_controller_address
 import httpx
 
 

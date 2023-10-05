@@ -1,22 +1,22 @@
 from fastapi import Body, Request
 from fastapi.responses import StreamingResponse
-from configs.model_config import (llm_model_dict, LLM_MODEL, PROMPT_TEMPLATE,
+from fmchain.configs.model_config import (llm_model_dict, LLM_MODEL, PROMPT_TEMPLATE,
                                   VECTOR_SEARCH_TOP_K, SCORE_THRESHOLD,
                                   TEMPERATURE)
-from server.chat.utils import wrap_done
-from server.utils import BaseResponse
+from fmchain.server.chat.utils import wrap_done
+from fmchain.server.utils import BaseResponse
 from langchain.chat_models import ChatOpenAI
 from langchain import LLMChain
 from langchain.callbacks import AsyncIteratorCallbackHandler
 from typing import AsyncIterable, List, Optional
 import asyncio
 from langchain.prompts.chat import ChatPromptTemplate
-from server.chat.utils import History
+from fmchain.server.chat.utils import History
 from fmchain.server.knowledge_base.kb_service import KBService, KBServiceFactory
 import json
 import os
 from urllib.parse import urlencode
-from server.knowledge_base.kb_doc_api import search_docs
+from fmchain.server.knowledge_base.kb_doc_api import search_docs
 
 
 async def knowledge_base_chat(query: str = Body(..., description="用户输入", examples=["你好"]),

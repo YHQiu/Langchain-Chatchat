@@ -1,6 +1,6 @@
 from fmchain.server.knowledge_base.kb_service import FaissKBService
-from server.knowledge_base.migrate import create_tables
-from server.knowledge_base.utils import KnowledgeFile
+from fmchain.server.knowledge_base.migrate import create_tables
+from fmchain.server.knowledge_base.utils import KnowledgeFile
 
 kbService = FaissKBService("test")
 test_kb_name = "test"

@@ -1,11 +1,11 @@
-from configs.model_config import (EMBEDDING_MODEL, DEFAULT_VS_TYPE, ZH_TITLE_ENHANCE,
+from fmchain.configs.model_config import (EMBEDDING_MODEL, DEFAULT_VS_TYPE, ZH_TITLE_ENHANCE,
                                   logger, log_verbose)
-from server.knowledge_base.utils import (get_file_path, list_kbs_from_folder,
+from fmchain.server.knowledge_base.utils import (get_file_path, list_kbs_from_folder,
                                         list_files_from_folder,files2docs_in_thread,
                                         KnowledgeFile,)
 from fmchain.server.knowledge_base.kb_service import KBServiceFactory
-from server.db.repository.knowledge_file_repository import add_file_to_db
-from server.db.base import Base, engine
+from fmchain.server.db.repository.knowledge_file_repository import add_file_to_db
+from fmchain.server.db.base import Base, engine
 import os
 from typing import Literal, Any, List
 
