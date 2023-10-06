@@ -39,6 +39,9 @@ EMBEDDING_MODEL = "m3e-base"
 # Embedding 模型运行设备。设为"auto"会自动检测，也可手动设定为"cuda","mps","cpu"其中之一。
 EMBEDDING_DEVICE = "auto"
 
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+OPENAI_BASE_URL = os.environ.get('OPENAI_BASE_URL')
+
 llm_model_dict = {
     # "chatglm-6b": {
     #     "local_model_path": "THUDM/chatglm-6b",
@@ -74,13 +77,13 @@ llm_model_dict = {
     # 需要添加代理访问(正常开的代理软件可能会拦截不上)需要设置配置openai_proxy 或者 使用环境遍历OPENAI_PROXY 进行设置
     # 比如: "openai_proxy": 'http://127.0.0.1:4780'
     # "gpt-3.5-turbo": {
-    #     "api_base_url": "https://api.openai.com/v1",
-    #     "api_key": "",
+    #     "api_base_url": OPENAI_BASE_URL,
+    #     "api_key": OPENAI_API_KEY,
     #     "openai_proxy": ""
     # },
     "gpt-3.5-turbo-16k-0613": {
-        "api_base_url": "",
-        "api_key": "",
+        "api_base_url": OPENAI_BASE_URL,
+        "api_key": OPENAI_API_KEY,
         "openai_proxy": ""
     },
     # 线上模型。当前支持智谱AI。
