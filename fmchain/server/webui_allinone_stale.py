@@ -53,7 +53,8 @@ def launch_webui(args, args_list=web_args, log_name=None):
         log_name = f"{LOG_PATH}webui"
 
     args_str = string_args(args, args_list)
-    webui_path = os.path.join(os.getcwd(), "webui.py")
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    webui_path = os.path.join(current_dir, "webui.py")
     print(webui_path)
 
     if args.nohup:

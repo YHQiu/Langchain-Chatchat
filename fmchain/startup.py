@@ -355,10 +355,16 @@ def run_api_server(started_event: mp.Event = None):
 
 
 def run_webui(started_event: mp.Event = None):
+
+
+
     host = WEBUI_SERVER["host"]
     port = WEBUI_SERVER["port"]
 
-    p = subprocess.Popen(["streamlit", "run", "webui.py",
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    webui_path = os.path.join(current_dir, "webui.py")
+
+    p = subprocess.Popen(["streamlit", "run", current_dir,
                           "--server.address", host,
                           "--server.port", str(port),
                           "--theme.base", "light",
