@@ -54,6 +54,7 @@ def launch_webui(args, args_list=web_args, log_name=None):
 
     args_str = string_args(args, args_list)
     webui_path = os.path.join(os.getcwd(), "webui.py")
+    print(webui_path)
 
     if args.nohup:
         print(f"Logs on api are written in {log_name}")
