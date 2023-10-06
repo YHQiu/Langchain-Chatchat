@@ -72,3 +72,5 @@ allow-prereleases = false
 
 [tool.poetry.packages]
 include = ["*"]
+
+[tool.wheel]
