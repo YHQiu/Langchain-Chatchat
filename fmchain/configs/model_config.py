@@ -79,8 +79,8 @@ llm_model_dict = {
     #     "openai_proxy": ""
     # },
     "gpt-3.5-turbo-16k-0613": {
-        "api_base_url": "http://44.238.134.107:8080/v1",
-        "api_key": "tt",
+        "api_base_url": "",
+        "api_key": "",
         "openai_proxy": ""
     },
     # 线上模型。当前支持智谱AI。
