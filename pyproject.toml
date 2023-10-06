@@ -2,15 +2,20 @@
 requires = ["setuptools>=40.9.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tool.poetry]
+[project]
 name = "fmchain"
 version = "0.0.1"
 authors = [{name = "hy Qiu", email = "your.email@example.com"}]
 description = "自定义Langchain-Chatchat"
 
 [tool.poetry.dependencies]
-python = "^3.8"
 
+[package]
+name = "fmchain"
+version = "0.0.1"
+
+[package.dependencies]
+python = "^3.8"
 # Define your dependencies here
 dependencies = [
     "langchain==0.0.287",
@@ -51,32 +56,6 @@ dependencies = [
     "mysqlclient",
     "duckduckgo-search"
 ]
-
-[tool.poetry.dev-dependencies]
-
-[tool.poetry.extras]
-
-[tool.poetry.scripts]
-
-[tool.poetry.source]
-
-[tool.poetry.source.dependencies]
-# Use this section if you need specific versions for the source dependencies
-
-[tool.poetry.source.extras]
-# Use this section if you have extras for the source dependencies
-
-[tool.poetry.source.urls]
-# Use this section if you need to specify custom URLs for the source dependencies
-
-[tool.poetry.source.includes]
-# Use this section to include or exclude files from the source package
-
-[package]
-name = "fmchain"
-version = "0.0.1"
-
-[package.dependencies]
 
 [package.dev-dependencies]
 
