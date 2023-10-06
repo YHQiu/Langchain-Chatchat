@@ -44,23 +44,26 @@ def launch_api(args,args_list=api_args,log_name=None):
     print("launch api done!")
     print("启动API服务完毕.")
 
-def launch_webui(args,args_list=web_args,log_name=None):
+import os
+
+def launch_webui(args, args_list=web_args, log_name=None):
     print("Launching webui...")
     print("启动webui服务...")
     if not log_name:
         log_name = f"{LOG_PATH}webui"
 
-    args_str = string_args(args,args_list)
+    args_str = string_args(args, args_list)
+    webui_path = os.path.join(os.getcwd(), "webui.py")
+
     if args.nohup:
-        print(f"logs on api are written in {log_name}")
-        print(f"webui服务日志位于{log_name}下，如启动异常请查看日志")
-        webui_sh = "streamlit run webui.py {args_str} >{log_name}.log 2>&1 &".format(
-        args_str=args_str,log_name=log_name)
+        print(f"Logs on api are written in {log_name}")
+        print(f"Webui服务日志位于{log_name}下，如启动异常请查看日志")
+        webui_sh = f"streamlit run {webui_path} {args_str} >{log_name}.log 2>&1 &"
     else:
-        webui_sh = "streamlit run webui.py {args_str}".format(
-        args_str=args_str)
+        webui_sh = f"streamlit run {webui_path} {args_str}"
+
     subprocess.run(webui_sh, shell=True, check=True)
-    print("launch webui done!")
+    print("Launch webui done!")
     print("启动webui服务完毕.")
 
 
