@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=40.9.0", "wheel"]
+requires = ["setuptools>=40.9.0", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,15 +7,7 @@ name = "fmchain"
 version = "0.0.1"
 authors = [{name = "hy Qiu", email = "your.email@example.com"}]
 description = "自定义Langchain-Chatchat"
-
-[tool.poetry.dependencies]
-
-[package]
-name = "fmchain"
-version = "0.0.1"
-
-[package.dependencies]
-python = "^3.8"
+requires-python = ">=3.8"
 # Define your dependencies here
 dependencies = [
     "langchain==0.0.287",
@@ -57,20 +49,8 @@ dependencies = [
     "duckduckgo-search"
 ]
 
-[package.dev-dependencies]
-
-[package.build-dependencies]
-
-[package.exclude]
-
-[workspace]
-
-[tool.poetry.check]
-allow-prereleases = false
-
 [tool.setuptools.packages.find]
 
-[tool.poetry.packages]
-include = ["*"]
-
 [tool.wheel]
+
+[tool.setuptools_scm]
